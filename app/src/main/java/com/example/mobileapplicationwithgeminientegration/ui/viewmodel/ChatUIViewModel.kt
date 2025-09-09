@@ -7,9 +7,26 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.mobileapplicationwithgeminientegration.ui.model.ChatItem
 import com.example.mobileapplicationwithgeminientegration.ui.model.ChatType
+import com.google.ai.client.generativeai.Chat
+import com.google.ai.client.generativeai.GenerativeModel
 
 
 class ChatUIViewModel : ViewModel() {
+
+    val generativeModel = GenerativeModel(
+        modelName = "gemini-2.0-flash", //gemini vision da olabilir.
+        apiKey = "..."
+    )
+
+    init {
+        startChat()
+    }
+
+    var aiChat: Chat? = null
+
+    private fun startChat() {
+        aiChat = generativeModel.startChat()
+    }
 
     val chatList = mutableStateListOf<ChatItem>()
 
