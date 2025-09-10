@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     // BURAYA KENDİ ANA COMPOSABLE FONKSİYONUNUZU YAZIN
                     // Örneğin, eğer ChatScreen uygulamanızın ana ekranıysa:
-                    ChatScreen() // Varsayılan Greeting yerine kendi Composable'ınızı çağırın
+                    ChatScreen()
+                         // Varsayılan Greeting yerine kendi Composable'ınızı çağırın
                 }
             }
         }
