@@ -14,7 +14,7 @@ class LoadPhotoViewModel: ViewModel() {
 
     val generativeModel = GenerativeModel(
         modelName = "gemini-2.0-flash", //gemini vision da olabilir.
-        apiKey = ""
+        apiKey = ""    // api keyi geçersiz yapılmıştır
     )
 
     var selectedImageUri = mutableStateOf<Uri?>(null)
