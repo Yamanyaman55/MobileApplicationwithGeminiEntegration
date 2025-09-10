@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mobileapplicationwithgeminientegration.ui.chatui.ChatScreen
 import com.example.mobileapplicationwithgeminientegration.ui.compareimage.CompareImageScreen
+import com.example.mobileapplicationwithgeminientegration.ui.loadphoto.LoadPhotoScreen
 import com.example.mobileapplicationwithgeminientegration.ui.theme.MobileApplicationWithGeminiEntegrationTheme
 
 
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
             MobileApplicationWithGeminiEntegrationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     //ChatScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
-                    // LoadPhotoScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
+                     LoadPhotoScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
                     //CompareImageScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
                 }
             }
