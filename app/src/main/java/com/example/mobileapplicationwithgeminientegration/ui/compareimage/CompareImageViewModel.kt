@@ -15,7 +15,7 @@ class CompareImageViewModel: ViewModel() {
 
     val generativeModel = GenerativeModel(
         modelName = "gemini-1.5-flash", //gemini vision da olabilir.
-        apiKey = "AIzaSyAyT1t4xK1sE7UFYSLOsr1xoNO0QHWY-kQ"
+        apiKey = ""
     )
 
     var selectedPhotoList = mutableStateListOf<Pair<Uri?, Bitmap?>>()
