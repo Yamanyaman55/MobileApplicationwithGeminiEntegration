@@ -2,7 +2,9 @@ package com.example.mobileapplicationwithgeminientegration.ui.chatui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -13,8 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.mobileapplicationwithgeminientegration.ui.model.ChatItem
-import com.example.mobileapplicationwithgeminientegration.ui.viewmodel.ChatUIViewModel
+
 
 
 @Composable
@@ -27,6 +28,7 @@ fun ChatScreen(modifier: Modifier = Modifier, viewModel: ChatUIViewModel = andro
         ) {
             itemsIndexed(viewModel.chatList) { index: Int, item: ChatItem ->
                 ChatUIItem(modifier = Modifier.fillMaxWidth(), item)
+                Spacer(modifier = Modifier.height(16.dp))
             }
         }
 
@@ -41,7 +43,7 @@ fun ChatScreen(modifier: Modifier = Modifier, viewModel: ChatUIViewModel = andro
                 onValueChange = viewModel::onMessageChanged
             )
 
-            TextButton(onClick = viewModel::addMessage) {
+            TextButton(onClick = viewModel::chatGemini) {
                 Text("Message'i gonder")
             }
         }

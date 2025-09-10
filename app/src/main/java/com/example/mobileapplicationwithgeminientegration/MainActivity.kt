@@ -19,23 +19,19 @@ import com.example.mobileapplicationwithgeminientegration.ui.theme.MobileApplica
 
 
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
-            MobileApplicationWithGeminiEntegrationTheme { // Kendi temanızı kullanın
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    // BURAYA KENDİ ANA COMPOSABLE FONKSİYONUNUZU YAZIN
-                    // Örneğin, eğer ChatScreen uygulamanızın ana ekranıysa:
-                    ChatScreen()
-                         // Varsayılan Greeting yerine kendi Composable'ınızı çağırın
+            MobileApplicationWithGeminiEntegrationTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    ChatScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
+                    //LoadPhotoScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
+                    //CompareImageScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
                 }
             }
         }
     }
 }
-
-// Android Studio'nun eklediği örnek

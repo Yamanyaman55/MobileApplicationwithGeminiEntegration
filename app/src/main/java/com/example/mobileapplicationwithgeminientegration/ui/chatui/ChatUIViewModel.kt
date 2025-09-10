@@ -1,4 +1,4 @@
-package com.example.mobileapplicationwithgeminientegration.ui.viewmodel
+package com.example.mobileapplicationwithgeminientegration.ui.chatui
 
 import android.util.Log
 import androidx.activity.result.launch
@@ -8,8 +8,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mobileapplicationwithgeminientegration.ui.model.ChatItem
-import com.example.mobileapplicationwithgeminientegration.ui.model.ChatType
 import com.google.ai.client.generativeai.Chat
 import com.google.ai.client.generativeai.GenerativeModel
 import kotlinx.coroutines.launch
@@ -19,7 +17,7 @@ class ChatUIViewModel : ViewModel() {
 
     val generativeModel = GenerativeModel(
         modelName = "gemini-2.0-flash", //gemini vision da olabilir.
-        apiKey = "AIzaSyBAOkbF8OPRukXZoS3mm_PGwryH2xBV0os"
+        apiKey = "AIzaSyAyT1t4xK1sE7UFYSLOsr1xoNO0QHWY-kQ"
     )
 
     init {
@@ -51,15 +49,20 @@ class ChatUIViewModel : ViewModel() {
         message = ""
     }
 
-
-    fun testGeminiConnection() {
+    fun chatGemini() {
+        if (message.isEmpty()) return
         viewModelScope.launch {
             try {
-                val response = generativeModel.generateContent("Bana bir şaka anlat")
-                Log.i("ChatViewModel", "Test Response: ${response.text}")
-            } catch (e: Exception) {
-                Log.e("ChatViewModel", "Test Connection Error: ${e.message}", e)
+                chatList.add(ChatItem(type = ChatType.USER, message = message))
+                val response = aiChat?.sendMessage(message)
+                chatList.add(ChatItem(type = ChatType.AI, message = response?.text ?: "null dondu ai"))
+                message = ""
+            }catch (ex:Exception){
+                Log.d("gemini","error : ${ex.localizedMessage}")
             }
+
         }
     }
+
+
 }

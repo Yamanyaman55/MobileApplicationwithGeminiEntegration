@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.mobileapplicationwithgeminientegration.ui.model.ChatItem
-import com.example.mobileapplicationwithgeminientegration.ui.model.ChatType
+import com.example.mobileapplicationwithgeminientegration.ui.chatui.ChatItem
+import com.example.mobileapplicationwithgeminientegration.ui.chatui.ChatType
 
 
 @Composable
